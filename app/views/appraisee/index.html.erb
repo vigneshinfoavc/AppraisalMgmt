@@ -33,7 +33,7 @@
 		<% else %>
 			<%= link_to("Edit", {:action => 'edit', :id => appraisee.id}, :class => 'action edit') %>
 		<% end %>
-        <%= link_to("Delete", {:action => 'delete', :id => appraisee.id}, :class => 'action delete') %>
+        <%= link_to("Delete", {:action => 'delete', :id => appraisee.id}, :class => 'action delete') if !is_manager_or_admin? %>
       </td>
     </tr>
     <% end %>
