@@ -1,0 +1,17 @@
+<% @page_title = "New Appraisse Item" %>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="appraisse new">
+  <h2>Create Appraisse</h2>
+
+  <%= form_for(:appraisee, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Appraisse") %>
+    </div>
+
+  <% end %>
+</div>

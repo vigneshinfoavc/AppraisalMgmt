@@ -1,0 +1,43 @@
+<% @page_title = "User Login" %>
+<div class="login">
+  <%= form_tag(:action => 'login') do %>
+  <table>
+    <tr>
+      <td><%= label_tag(:username) %></td>
+      <td><%= text_field_tag(:username) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:password) %></td>
+      <td><%= password_field_tag(:password) %></td>
+    </tr>
+	<tr>
+		<td><%= label_tag(:role) %></td>
+		<td><%= select_tag(:role,options_for_select(ROLES)) %></td>
+	</tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Log In", :onclick => "return check_validation();") %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+
+<script>
+	function check_validation(){
+		if(document.getElementById("username").value == ""){
+			alert("Please Enter the Username");
+			return false;
+		}
+		else if(document.getElementById("password").value == ""){
+			alert("Please Enter the Password");
+			return false;
+		}
+		else if(document.getElementById("role").value == "Select"){
+			alert("Please Choose the Role");
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+</script>

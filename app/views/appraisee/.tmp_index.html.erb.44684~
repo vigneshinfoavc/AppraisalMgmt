@@ -1,0 +1,40 @@
+<% @page_title = "Appraisee" %>
+
+<%= link_to("<< Back to Menu", {:controller => 'users', :action => 'home'}, :class => 'back-link') %>
+
+<div class="appraisee index">
+  <h2>Appraisel List</h2>
+  	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add Appraissee", {:action => 'new'}, :class => 'action new') if !is_manager_or_admin? %>
+
+  <div><%= pluralize(@appraisees.size, 'Appraisee') %> found</div>
+  <table class="listing" summary="Subject list">
+    <tr class="header">
+      <th>Employee Name</th>
+      <th>Appraisel Month</th>
+      <th>Trainings</th>
+      <th>Projects</th>
+      <th>Appreciations</th>
+      <th>Remarks</th>
+	  <th>Feedback</th>
+	  <th></th>
+    </tr>
+    <% @appraisees.each do |appraisee| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= appraisel_month(appraisee.month,appraisee.year)%></td>
+      <td><%= appraisee.trainings %></td>
+      <td><%= appraisee.projects %></td>
+      <td><%= appraisee.appreciations %></td>
+      <td><%= appraisee.remarks %></td>
+	  <td><%= appraisee.feedback %></td>
+      <td class="actions">
+		<% if is_manager_or_admin? %>
+			<%= link_to(appraisee.feedback.blank? ? "Add FeedBack" : "Edit Feedback" , {:action => 'edit', :id => appraisee.id}, :class => 'action edit') %>
+		<% else %>
+			<%= link_to("Edit", {:action => 'edit', :id => appraisee.id}, :class => 'action edit') %>
+		<% end %>
+        <%= link_to("Delete", {:action => 'delete', :id => appraisee.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

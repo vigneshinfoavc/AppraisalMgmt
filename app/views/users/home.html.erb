@@ -1,0 +1,10 @@
+<% @page_title = "Menu" %>
+<div class="menu">
+  <h2>Admin Menu</h2>
+  <div class="identity">Logged in as: <%= session[:username] %></div>
+  <ul>
+    <li><%= link_to(is_manager?, :controller => 'appraisee') if !link_enable?%></li>
+    <li><%= link_to("Manage Users", :controller => 'users') if link_enable? %></li>
+	<li><%= link_to("Logout", :action => 'logout') %></li>
+  </ul>
+</div>
