@@ -1,5 +1,4 @@
 class AppraiseeController < ApplicationController
-  layout 'admin'
   before_action :confirm_login
   def index
     @appraisees = Appraisee.by_employee(session[:user_id],session[:role]).sort

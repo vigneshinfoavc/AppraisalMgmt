@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  layout 'admin'
   
   before_action :confirm_login,:manager_list, :except => [:signin, :login, :attempt_login, :logout]
   def new
