@@ -23,9 +23,10 @@
 	    <td><%= f.text_area(:feedback) %></td>
 	  </tr>
 	  <%= f.hidden_field(:is_complete, :value => :true)%>
-  <% end %>
+  <%else%>
   <tr>
     <th><%= f.label(:month_year) %></th>
     <td><%= f.select(:month, MONTHS.collect{|c| c.values }) %><%= f.select(:year, YEARS.collect{|c| c.values }) %></td>
   </tr>
+  <% end %>
 </table>
