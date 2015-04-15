@@ -31,7 +31,7 @@
   </tr>
   <tr id="load_manager" class="hidden">
   	<th><%= f.label(:manager_id) %></th>
-	<td><%= collection_select(:appraisee,:manager_id,@managers, :id,:first_name,{:prompt => "Select" })%></td>
+	<td><%= collection_select(:user,:manager_id,@managers, :id,:first_name,{:prompt => "Select" })%></td>
   </tr>
 </table>
 
